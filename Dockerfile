@@ -10,8 +10,13 @@ ENV LC_ALL ja_JP.UTF-8
 ENV TZ JST-9
 ENV TERM xterm
 
-RUN apt-get install -y vim less
+RUN apt-get install -y vim less wget git
 RUN pip install --upgrade pip
 RUN pip install --upgrade setuptools
 
+COPY .gitconfig /root/.gitconfig
+COPY .bashrc /root/.bashrc
+
 RUN python -m pip install jupyterlab
+
+#WORKDIR /root
